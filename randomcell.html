@@ -3,21 +3,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
 <script src="jquery-2.1.1.min.js" type="text/javascript"></script>
-<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
 <link href="materialize.min.css" rel="stylesheet" type="text/css" />
 <script src="materialize.min.js" type="text/javascript"></script>
 <style>
+.developer{position:absolute;bottom:0px;width:100%;margin:0px;}
+.developer span{color:#0d4c0d;font-weight:300;}
 body{background:#43a047;}
 @media only screen and (min-device-width : 320px) and (orientation : landscape) 
 {
  .finish{width: 100%;
-    height: 170px;go
+    height: 170px;
     position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto; 
+    font-weight:lighter;
   }
 }
 @media only screen and (min-device-width : 320px) and (orientation : portrait) 
@@ -30,26 +32,26 @@ body{background:#43a047;}
     left: 0;
     right: 0;
     margin: auto; 
+    font-weight:300;
   }
 }
+
 /*.finish{position:absolute;top:0px;margin-top:15%;width:100%;vertical-align: middle;display: inline-block; }*/
 .finish big{font-size:12px;color:#FFF;}
-.finish #el{color:#FFF;font-size:4rem;font-weight:300;margin-top:-15px;}
-h6{padding:15px;color:#67c0ea;}    
+.finish #el{color:#FFF;font-size:4rem;font-weight:200;margin-top:-5px;}
+h6{padding:15px;color:white;font-weight:300;}    
 table{border:3px solid #dfcdcd;min-height:216px;max-height:216px;
       width: 100%;
     height: 216px;
-    background-color: red;
-
     position: absolute;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-
-    margin: auto;}
+    margin: auto;
+    }
 table td {border:1px solid #dfcdcd;padding:0px;text-align:center;}
-.top{content:"";width:100%;height:2px;background:#4CAF50;-webkit-animation:timer 60s;-moz-animation:timer 60s;-ms-animation:timer 60s;-o-animation:timer 60s;animation:timer 60s;box-shadow:1px 0px 2px rgba(0,0,0,.9);}
+.top{content:"";width:100%;height:2px;background:/*#4CAF50*/#FFFFFF;-webkit-animation:timer 60s;-moz-animation:timer 60s;-ms-animation:timer 60s;-o-animation:timer 60s;animation:timer 60s;box-shadow:1px 0px 2px rgba(0,0,0,.9);}
 @-webkit-keyframes timer
 {
     0%{width:0%;}
@@ -84,7 +86,7 @@ table td {border:1px solid #dfcdcd;padding:0px;text-align:center;}
 }
 
 a {
-    cursor: pointer;
+    cursor:default;
     text-decoration: none;
     color: #ccc;
 }
@@ -578,7 +580,7 @@ body.play ul li.active .down .shadow {
 </div>
 
  <div style="display:none;">Registration closes in <span id="time">00:59</span> minutes!</div>
- <div class="finish" id="finish" align="center">
+ <div class="finish" id="finish" align="center" style="display:none">
     <div class="center-align">
         <h6 class="white-text">Thank You for Your Presence</h6>
         
@@ -587,11 +589,13 @@ body.play ul li.active .down .shadow {
     <div id="el" align="center"></div>
 
     <div class="clearfix"></div>
-        <a class="waves-effect white-text" href="index.html">Go Back to Home</a>
+        <a class="waves-effect white-text" href="index.html">Go Back to Start Again</a>
  </div>
- 
+ <div class="row center-align developer">
+ <span class="">Naresh Kumar</span>
+ </div>
 <script>
-    var tableCount, countcells = 2, score = 0, timeInterval;
+    var tableCount, countcells = 2, score = 0, timeInterval, reduceColorValue = 100;
 
     function timer() {
         $(".finish").hide();
@@ -653,12 +657,26 @@ body.play ul li.active .down .shadow {
 
     //get Random Colors on page Load
     function getRandomColor() {
-        var letters = '0123456789'.split(''); //ABCDEF
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 10)]; //16
-        }
+        //var letters = '0123456789'.split(''); //ABCDEF
+        //var color = '#';
+        //for (var i = 0; i < 6; i++) {
+        //    color += letters[Math.floor(Math.random() * 10)]; //16
+        //}
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+
+        var color = 'rgb(' + r + ',' + g + ',' + b + ')';
+        //var color = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+
+        r -= reduceColorValue;
+        g -= reduceColorValue;
+        b -= reduceColorValue;
+        reduceColorValue -= 3;
+
+        var diffColor = 'rgb(' + r + ',' + g + ',' + b + ')';
         $("table tr td").css("background", color);
+        $("table tr td a").css("background", diffColor);
         //$("table tr td").css("color", color);
         //alert(color);
         $("#myContainer").addClass("responsive-table");
@@ -666,7 +684,7 @@ body.play ul li.active .down .shadow {
         document.getElementsByTagName("table")[0].setAttribute("cellspacing", "0");
         document.getElementsByTagName("table")[0].setAttribute("cellpadding", "0");
         document.getElementsByTagName("table")[0].setAttribute("id", "table");
-        
+
     }
     
     //creating table dynamically
