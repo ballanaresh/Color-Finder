@@ -1,361 +1,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
-<script src="jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="materialize.min.css" rel="stylesheet" type="text/css" />
-<script src="materialize.min.js" type="text/javascript"></script>
-<style>
-.developer{position:absolute;bottom:0px;width:100%;margin:0px;}
-.developer span{color:#0d4c0d;font-weight:300;}
-body{background:#43a047;}
-@media only screen and (min-device-width : 320px) and (orientation : landscape) 
-{
- .finish{width: 100%;
-    height: 170px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto; 
-    font-weight:lighter;
-  }
-}
-@media only screen and (min-device-width : 320px) and (orientation : portrait) 
-{
-    .finish{width: 100%;
-    height: 170px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto; 
-    font-weight:300;
-  }
-}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/materialize.min.js" type="text/javascript"></script>
 
-/*.finish{position:absolute;top:0px;margin-top:15%;width:100%;vertical-align: middle;display: inline-block; }*/
-.finish big{font-size:12px;color:#FFF;}
-.finish #el{color:#FFF;font-size:4rem;font-weight:200;margin-top:-5px;}
-h6{padding:15px;color:white;font-weight:300;}    
-table{border:3px solid #dfcdcd;min-height:216px;max-height:216px;
-      width: 100%;
-    height: 216px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    }
-table td {border:1px solid #dfcdcd;padding:0px;text-align:center;}
-.top{content:"";width:100%;height:2px;background:/*#4CAF50*/#FFFFFF;-webkit-animation:timer 60s;-moz-animation:timer 60s;-ms-animation:timer 60s;-o-animation:timer 60s;animation:timer 60s;box-shadow:1px 0px 2px rgba(0,0,0,.9);}
-@-webkit-keyframes timer
-{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-@-moz-keyframes timer
-{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-@-ms-keyframes timer
-{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-@-o-keyframes timer
-{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-@keyframes timer
-{
-    0%{width:0%;}
-    100%{width:100%;}
-}
-
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    cursor:default;
-    text-decoration: none;
-    color: #ccc;
-}
-
-a:hover {
-    color: #fff;
-}
-
-ul {
-    list-style: none
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
-}
-
-
-/* Container replaced by body */
-.timer {
-    font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
-    user-select: none;
-    color: #888;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#969696', endColorstr = '#595959', GradientType = 1);
-
-}
-
-.timer {
-    text-align: center;
-    position: absolute;
-    right:0px;
-    margin-right:20px;
-    top: 3%;
-    
-    
-}
-
-#social {
-    text-align: center;
-    position: absolute;
-    bottom: 14%;
-    width: 100%;
-}
-#social p{
-  margin-bottom: 10px;
-}
-
-#social ul,
-#social li {
-    display: inline-block;
-}
-
-/* Skeleton */
-
-ul.flip {
-    position: relative;
-    float: left;
-    margin: 2px;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 30px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .7);
-}
-
-ul.flip li {
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-}
-
-ul.flip li:first-child {
-    z-index: 2;
-}
-
-ul.flip li a {
-    display: block;
-    height: 100%;
-    perspective: 200px;
-}
-
-ul.flip li a div {
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    overflow: hidden;
-}
-
-ul.flip li a div .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-
-ul.flip li a div.up {
-    transform-origin: 50% 100%;
-    top: 0;
-}
-
-ul.flip li a div.up:after {
-  content: "";
-  position:absolute;
-  top:44px;
-  left:0;
-  z-index: 5;
-    width: 100%;
-  height: 3px;
-  background-color: rgba(0,0,0,.4);
-}
-
-ul.flip li a div.down {
-    transform-origin: 50% 0%;
-    bottom: 0;
-}
-
-ul.flip li a div div.inn {
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 200%;
-    color: #ccc;
-    text-shadow: 0 1px 2px #000;
-    text-align: center;
-    background-color: #333;
-    border-radius: 6px;
-}
-
-ul.flip li a div.up div.inn {
-    top: 0;
-
-}
-
-ul.flip li a div.down div.inn {
-    bottom: 0;
-}
-
-/* PLAY */
-
-body.play ul li.before {
-    z-index: 3;
-}
-
-body.play ul li.active {
-    animation: asd .5s .5s linear both;
-    z-index: 2;
-}
-
-@keyframes asd {
-    0% {
-        z-index: 2;
-    }
-    5% {
-        z-index: 4;
-    }
-    100% {
-        z-index: 4;
-    }
-}
-
-body.play ul li.active .down {
-    z-index: 2;
-    animation: turn .5s .5s linear both;
-}
-
-@keyframes turn {
-    0% {
-        transform: rotateX(90deg);
-    }
-    100% {
-        transform: rotateX(0deg);
-    }
-}
-
-body.play ul li.before .up {
-    z-index: 2;
-    animation: turn2 .5s linear both;
-}
-
-@keyframes turn2 {
-    0% {
-        transform: rotateX(0deg);
-    }
-    100% {
-        transform: rotateX(-90deg);
-    }
-}
-
-/* SHADOW */
-
-body.play ul li.before .up .shadow {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, .1)), color-stop(100%, rgba(0, 0, 0, 1)));
-    background: linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    animation: show .5s linear both;
-}
-
-body.play ul li.active .up .shadow {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, .1)), color-stop(100%, rgba(0, 0, 0, 1)));
-    background: linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 1) 100%);
-    animation: hide .5s .3s linear both;
-}
-
-/*DOWN*/
-
-body.play ul li.before .down .shadow {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 1)), color-stop(100%, rgba(0, 0, 0, .1)));
-    background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    animation: show .5s linear both;
-}
-
-body.play ul li.active .down .shadow {
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 1)), color-stop(100%, rgba(0, 0, 0, .1)));
-    background: linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .1) 100%);
-    animation: hide .5s .3s linear both;
-}
-
-@keyframes show {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes hide {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-</style>
 </head>
 
 <body  onload="tableMatrix(1);getRandomColor();timer();" >
@@ -580,20 +231,23 @@ body.play ul li.active .down .shadow {
 </div>
 
  <div style="display:none;">Registration closes in <span id="time">00:59</span> minutes!</div>
- <div class="finish" id="finish" align="center" style="display:none">
-    <div class="center-align">
+ <div class="finish fade" id="finish" align="center" style="display:none">
+    <div class="fade center-align">
         <h6 class="white-text">Thank You for Your Presence</h6>
         
     </div>
-    <big>SCORE</big>
-    <div id="el" align="center"></div>
-
+    <big class="fade">SCORE</big>
+    <div id="el" class="fade" align="center"></div>
     <div class="clearfix"></div>
-        <a class="waves-effect white-text" href="index.html">Go Back to Start Again</a>
+    <img src="images/photo3.png" class="fade" id="image"/>
+    <div class="clearfix"></div>
+        <a class="waves-effect waves-light white-text fade" href="index.html" > Go Back to Start Again</a>
+
  </div>
  <div class="row center-align developer">
  <span class="">Naresh Kumar</span>
  </div>
+
 <script>
     var tableCount, countcells = 2, score = 0, timeInterval, reduceColorValue = 100;
 
@@ -617,7 +271,7 @@ body.play ul li.active .down .shadow {
 
             display.textContent = minutes + ":" + seconds;
             
-            if (--timer < 0) {
+            if (--timer < 60) {
                 //timer = duration;
                 finish();
             }
@@ -633,20 +287,58 @@ body.play ul li.active .down .shadow {
         $(".finish").show();
         $(".scoreDiv").hide();
         $("body").addClass("brown darken-4");
-        increment();
+        //increment();
+        timeSlice();
+    }
+    var i = 1;
+    var time = 1000;
+    function timeSlice() {
+        (function ($) {
+            (function fadeNext(collection) {
+                collection.eq(0).fadeIn(time, function () {
+                    (collection = collection.slice(1)).length
+                && fadeNext(collection)
+                    i += 1;
+                    if (i == 3) {
+                        increment();
+                        time = 6000;
+                        $('#el').addClass("reduceScoreFont");
+                    }
+                    else if (i == 4) {
+                        $("#image").addClass("increaseImageSize");
+                        time = 2000;
+                    }
+                });
+            })($('.fade'))
+        })(jQuery)
     }
 
     // Animate the element's value from x to y:
     function increment() {
         $({ someValue: 0 }).animate({ someValue: score }, {
-            duration: 3000,
+            duration: 9000,
             easing: 'swing', // can be anything
             step: function () { // called on every step
                 // Update the element's text with rounded-up value:
                 $('#el').text(commaSeparateNumber(Math.round(this.someValue)));
             }
         });
+        
+
+        if (score <= 5) {
+            $("#image").attr('src', 'medal1.png');
+
+        }
+        else if ((score > 5) && (score <= 10)) {
+            $("#image").attr('src', 'medal3.png');
+        }
+        else if (score > 10) {
+            $("#image").attr('src', 'medal2.png');
+        }
+
+        
     }
+
     function commaSeparateNumber(val) {
         while (/(\d+)(\d{3})/.test(val.toString())) {
             val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
@@ -724,7 +416,7 @@ body.play ul li.active .down .shadow {
 
             cell.classList.add('selected');
 
-            cell.innerHTML = "<a href='#' onclick='tableMatrixIncrement(2);' style='display:block;padding;100%;text-align:center;background:#000;'></a>";
+            cell.innerHTML = "<a href='#' onclick='tableMatrixIncrement(2);' class='waves-effect waves-light' style='display:block;padding;100%;text-align:center;background:#000;'></a>";
             //cell.innerHTML = '1';
             x++;
 
